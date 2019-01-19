@@ -9898,4 +9898,7 @@ configurations""")
     override fun toString(): String {
         return wordList.joinToString("\n")
     }
+
+    val size: Int
+        get() = wordList.size
 }
