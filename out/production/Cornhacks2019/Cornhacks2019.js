@@ -5,12 +5,18 @@ var Cornhacks2019 = function (_, Kotlin) {
   'use strict';
   var println = Kotlin.kotlin.io.println_s8jyv4$;
   var throwCCE = Kotlin.throwCCE;
+  var Unit = Kotlin.kotlin.Unit;
+  function main$lambda(it) {
+    window.alert('test');
+    return Unit;
+  }
   function main(args) {
     var tmp$;
     var message = 'Hello JavaScript!';
     println(message);
     var testField = Kotlin.isType(tmp$ = document.getElementById('test'), HTMLInputElement) ? tmp$ : throwCCE();
     testField.value = 'this works woo';
+    testField.addEventListener('click', main$lambda);
   }
   _.main_kand9s$ = main;
   main([]);
