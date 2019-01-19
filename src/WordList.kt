@@ -1,6 +1,6 @@
 class WordList(val wordList: Collection<String>) {
 
-    constructor(newlineDelimitedList: String): this(newlineDelimitedList.trimIndent().trim().lines().filter { n -> n.length > 3 })
+    constructor(newlineDelimitedList: String): this(newlineDelimitedList.trimIndent().trim().replace(",", "\n").lines().filter { n -> n.length > 3 })
 
     companion object {
         val DEFAULT_EASY = WordList("""
@@ -9900,7 +9900,7 @@ configurations""")
     }
 
     override fun toString(): String {
-        return wordList.joinToString("\n")
+        return wordList.joinToString(",")
     }
 
     val size: Int

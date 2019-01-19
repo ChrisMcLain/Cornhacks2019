@@ -35,7 +35,7 @@
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Teachers</a>
+                            <a class="nav-link" href="#pageTeachers" data-toggle="collapse">Teachers</a>
                         </li>
                     </ul>
                 </div>
@@ -74,7 +74,50 @@
                     <p>
                         Use our editor to add spelling lists for your students to use for practice!
                     </p>
-                    <button type="button" class="btn btn-secondary">Open Editor</button>
+                    <a class="btn btn-secondary" href="#pageTeachers" data-toggle="collapse">Open Editor</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="pageTeachers" data-parent="#accordion" class="collapse">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <p class="game_title">Teacher's Tools</p>
+                    </div>
+                </div>
+
+                <div class="row justify-content-center">
+                    <div class="col-8">
+                        <div class="teacher_input_box">
+                            Enter your spelling list with one word per line: <br>
+                            <textarea class="form-control" id="teacherTextArea" rows="20"></textarea>
+                            <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#teacherModal">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="teacherModal" class="modal" tabindex="-1" role="dialog">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Link Generated</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>
+                                Click and drag to select the link below, and then right click and click copy.
+                                Then you can right click and paste it anywhere else to share it with your students!
+                            </p>
+                            <input value="url" disabled="true" style="width: 100%;">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary">Done</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -82,14 +125,75 @@
         <div id="pageGame1" data-parent="#accordion" class="collapse">
             <div class="row justify-content-md-center">
                 <div class="col-md-12">
-                    the hangman game goes here
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-12">
+                                <p class="game_title">Hangman</p>
+                            </div>
+                        </div>
+
+                        <div class="row justify-content-end">
+                            <div class="col-6">
+                                <div class="box_title">
+                                    Guessed Letters
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="padding">
+                                    <div class="hangman_box">
+                                        test
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="padding">
+                                    <div class="guessed_letter_box">
+                                        word stuff will go here
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="padding">
+                                    <div class="align_text_input">
+                                        word stuff will go here
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal" tabindex="-1" role="dialog">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Rules</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Rules go here</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <p>Select a Difficulty:</p>
+                                    <button type="button" class="btn btn-success">Easy</button>
+                                    <button type="button" class="btn btn-warning" data-dismiss="modal">Medium</button>
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Hard</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
     <footer>
-        <hr>
         <small>
             Created at Cornhacks 2019 by Emma Hubka, Erik Skoog, Chris McLain<br/>
             Made with Kotlin, Bootstrap, js-cookie
