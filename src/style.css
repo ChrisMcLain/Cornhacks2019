@@ -1,0 +1,30 @@
+body {
+    background-color: #eaebeb;
+}
+
+
+.game_title {
+    font-size: 24pt;
+    text-align: center;
+}
+
+.padding {
+    padding: 10px;
+}
+
+.hangman_box {
+    border-width: 3px;
+    border-style: solid;
+    border-color: #343A40;
+    border-radius: 3px;
+    padding: 5px;
+}
+
+.guessed_letter_box {
+    border-width: 3px;
+    border-style: solid;
+    border-color: #f7931e;
+    border-radius: 3px;
+    padding: 5px;
+    height: 100px;
+}
