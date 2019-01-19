@@ -1,4 +1,4 @@
-package sample;
+package spellmate.ui;
 
 public class Controller {
 }
