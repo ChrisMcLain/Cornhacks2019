@@ -12,39 +12,85 @@
     <div class="row">
         <div class="col-12" style="padding-left:0px; padding-right:0px;">
             <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-                <a class="navbar-brand" href="#">Navbar</a>
+                <a class="navbar-brand" href="#">Spellmate</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
-                            <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="#pageHome" data-toggle="collapse">Home</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Games
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">Hangman</a>
-                                <a class="dropdown-item" href="#">Games 2</a>
-                                <a class="dropdown-item" href="#">Games 3</a>
+                                <a class="dropdown-item" href="#pageGame1" data-toggle="collapse">Hangman</a>
+                                <a class="dropdown-item" href="#">Game 2</a>
+                                <a class="dropdown-item" href="#">Game 3</a>
                             </div>
                         </li>
-                        <li class="nav-item">
+                        <!--<li class="nav-item">
                             <a class="nav-link" href="#">Teachers</a>
-                        </li>
+                        </li>-->
                     </ul>
                 </div>
             </nav>
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-12">
-            <p>body stuff goes here</p>
+    <br/>
+
+    <div id="accordion">
+        <div id="pageHome" data-parent="#accordion" class="collapse show">
+            <div class="row justify-content-md-center">
+                <div class="col-md-4">
+                    <h3>Spelling Games</h3>
+                    <hr>
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Hangman</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#pageGame1" data-toggle="collapse" class="btn btn-primary">Play</a>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Game II</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#pageGame1" data-toggle="collapse" class="btn btn-primary">Play</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <h5>Teacher Tools</h5>
+                    <p>
+                        Use our editor to add spelling lists for your students to use for practice!
+                    </p>
+                    <button type="button" class="btn btn-link">Open Editor</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="pageGame1" data-parent="#accordion" class="collapse">
+            <div class="row">
+                <div class="col-md-12">
+                    the hangman game goes here
+                </div>
+            </div>
         </div>
     </div>
+
+    <footer>
+        <hr>
+        <small>
+            Created at Cornhacks 2019 by Emma Hubka, Erik Skoog, Chris McLain
+        </small>
+    </footer>
 </div>
 
 <!-- Keep this at the bottom please -->
