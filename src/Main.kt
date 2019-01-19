@@ -5,12 +5,5 @@ import kotlin.browser.window
 val spellmate: Spellmate = Spellmate()
 
 fun main(args: Array<String>) {
-    val message = "Hello JavaScript!"
-    println(message)
 
-    val testField = document.getElementById("test") as HTMLInputElement
-    testField.value = "this works woo"
-    testField.addEventListener("click", {
-        window.alert("test")
-    });
 }

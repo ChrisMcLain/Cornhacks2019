@@ -1,10 +1,24 @@
 class Spellmate {
     var wordList: WordList = getStoredList()
 
+    init {
+        saveStoredList()
+    }
+
     private fun getStoredList(): WordList {
-        val cookie = Cookies.get(COOKIE_WORD_LIST);
-        return if(cookie != undefined) {
+        val param = Parameters.get(PARAM_WORD_LIST)
+        val cookie = Cookies.get(COOKIE_WORD_LIST)
+
+        return if(param != null) { // First checks URL param
+            WordList(param)
+        } else if(cookie != undefined) { // Next checks cookies
             WordList(cookie)
-        } else WordList.DEFAULT_MEDIUM;
+        } else { // Finally uses default if no other lists available
+            WordList.DEFAULT_MEDIUM
+        }
+    }
+
+    private fun saveStoredList() {
+        Cookies.set(COOKIE_WORD_LIST, wordList.toString())
     }
 }

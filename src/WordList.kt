@@ -1,4 +1,4 @@
-class WordList(wordList: Collection<String>) {
+class WordList(val wordList: Collection<String>) {
 
     constructor(newlineDelimitedList: String): this(newlineDelimitedList.trimIndent().trim().lines().filter { n -> n.length > 3 })
 
@@ -9893,5 +9893,9 @@ subjective
 swaziland
 varieties
 configurations""")
+    }
+
+    override fun toString(): String {
+        return wordList.joinToString("\n")
     }
 }
