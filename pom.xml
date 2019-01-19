@@ -8,5 +8,12 @@
     <artifactId>Cornhacks2019</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <repositories>
+
+    </repositories>
+
+    <dependencies>
+
+    </dependencies>
 
 </project>
