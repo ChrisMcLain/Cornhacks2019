@@ -1,5 +1,5 @@
 body {
-    background-color: #eaebeb;
+    background-color: #fbd3a5;
 }
 
 .game_title {
@@ -16,24 +16,24 @@ body {
     border-style: solid;
     border-color: #343A40;
     border-radius: 3px;
-    background-color: #c0c1c2;
+    background-color: #fdeddb;
     padding: 5px;
-    height: 400px;
+    min-height: 400px;
 }
 
 .guessed_letter_box {
     border-width: 3px;
     border-style: solid;
-    border-color: #f7931e;
+    border-color: #343A40;
     border-radius: 3px;
-    background-color: #fbd3a5;
+    background-color: #fdeddb;
     padding: 5px;
-    height: 250px;
+    min-height: 250px;
 }
 
 .box_title {
     font-size: 18pt;
-    color: #f7931e;
+    /*color: #f7931e;*/
     padding-left: 10px;
     text-align: center;
 }
@@ -41,4 +41,16 @@ body {
 .align_text_input {
     text-align: center;
     padding-top: 20px;
+}
+
+.teacher_input_box {
+   border-width: 3px;
+   border-style: solid;
+   border-color: #343A40;
+   border-radius: 3px;
+   background-color: #fdeddb;
+   padding: 5px;
+   min-height: 250px;
+   width: 100%;
+   text-align: center;
 }
