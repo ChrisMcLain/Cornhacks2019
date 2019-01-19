@@ -17,8 +17,6 @@ var Cornhacks2019 = function (_, Kotlin) {
     var testField = Kotlin.isType(tmp$ = document.getElementById('test'), HTMLInputElement) ? tmp$ : throwCCE();
     testField.value = 'this works woo';
     testField.addEventListener('click', main$lambda);
-    Cookies.set('test', '123');
-    window.alert(Cookies.get('test'));
   }
   _.main_kand9s$ = main;
   main([]);
