@@ -3,5 +3,4 @@ enum class Status {
     WIN,
     LOSE,
     DESTROYED, //this hangman instance should not do anything at all
-    NOT_STARTED
 }
