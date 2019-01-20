@@ -14,7 +14,7 @@ class Spellmate {
         } else if(cookie != undefined) { // Next checks cookies
             WordList(cookie)
         } else { // Finally uses default if no other lists available
-            WordList.DEFAULT_MEDIUM
+            WordList.DEFAULT_HARD
         }
     }
 

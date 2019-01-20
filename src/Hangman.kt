@@ -1,3 +1,4 @@
+import org.w3c.dom.HTMLButtonElement
 import org.w3c.dom.HTMLDivElement
 import org.w3c.dom.HTMLImageElement
 import org.w3c.dom.HTMLParagraphElement
@@ -23,6 +24,7 @@ class Hangman() {
     private val wordBox = document.getElementById("hangmanWordBox") as HTMLDivElement
     private val winBoxText = document.getElementById("hangmanWinBoxText") as HTMLParagraphElement
     private val loseBoxText = document.getElementById("hangmanLoseBoxText") as HTMLParagraphElement
+    private val tryAgainButton = document.getElementById("hangmanTryAgainButton") as HTMLButtonElement
 
     init {
         window.addEventListener("keydown", { n ->
@@ -36,6 +38,10 @@ class Hangman() {
 
             if(letter.matches("[A-Za-z]"))
                 tryPlayLetter(char)
+        })
+
+        tryAgainButton.addEventListener("click", {
+            resetHangman();
         })
 
         updateVisuals()
@@ -94,15 +100,10 @@ class Hangman() {
 
         if(status == Status.WIN) {
             winBoxText.innerText = "The word was ${this.word.toUpperCase()}!"
-            js("\$('#hangmanWinBox').collapse('show')")
-            js("\$('#hangmanLoseBox').collapse('hide')")
+            js("\$('#hangmanWinBox').modal()")
         } else if(status == Status.LOSE) {
             loseBoxText.innerText = "The word was ${this.word.toUpperCase()}."
-            js("\$('#hangmanLoseBox').collapse('show')")
-            js("\$('#hangmanWinBox').collapse('hide')")
-        } else {
-            js("\$('#hangmanWinBox').collapse('hide')")
-            js("\$('#hangmanLoseBox').collapse('hide')")
+            js("\$('#hangmanLoseBox').modal()")
         }
     }
 }

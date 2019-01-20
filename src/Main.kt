@@ -4,6 +4,7 @@ import kotlin.browser.document
 import kotlin.browser.window
 
 val spellmate: Spellmate = Spellmate()
+var hangman: Hangman = Hangman()
 
 fun main(args: Array<String>) {
     println("Loaded wordlist of size ${spellmate.wordList.size}\n" + spellmate.wordList.toString())
@@ -28,7 +29,8 @@ fun main(args: Array<String>) {
     modalButton.forEach { n -> n.addEventListener("click", {
         window.location.assign(spellmate.wordList.getLink());
     })}
+}
 
-    //Hangman things
-    val hangman = Hangman()
+fun resetHangman() {
+    hangman = Hangman()
 }
