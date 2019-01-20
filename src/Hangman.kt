@@ -35,7 +35,7 @@ class Hangman() {
         tryAgainButton.forEach { n -> n.addEventListener("click", {
             if(status != Status.DESTROYED) {
                 status = Status.DESTROYED
-                resetHangman();
+                resetHangman()
             }
         })}
 

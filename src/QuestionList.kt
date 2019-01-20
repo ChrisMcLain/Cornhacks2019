@@ -1,8 +1,7 @@
 class QuestionList {
-    val questionList: List<Question> = Question.values().asList()
 
     fun take(choices: List<String> = getRandomMode()): List<Question> {
-        return questionList
+        return Question.values()
                 .filter { n -> n.choices == choices }
                 .shuffled()
                 .take(6);
@@ -67,8 +66,12 @@ enum class Question(val question: String, val choices: List<String>) {
     Q41("Look out, over (there)!", THERE_THEIR_THEYRE),
     ;
 
-    fun getCorrectAnswer(): String? {
-        return question.toLowerCase().match("(?<=\\()[A-Za-z]+(?=\\))")?.get(0)
+    fun getCorrectAnswer(): String {
+        return question.toLowerCase().match("(?<=\\()[A-Za-z]+(?=\\))")!![0]
+    }
+
+    fun getCorrectAnswerIndex(): Int {
+        return choices.indexOf(getCorrectAnswer())
     }
 
     fun getBlankedQuestion(): String {
