@@ -36,8 +36,8 @@ footer {
     border-color: #343A40;
     border-radius: 3px;
     background-color: #fdeddb;
-    min-height: 400px;
-
+    max-height: 700px;
+    min-height: 250px;
     padding: 2em 2em;
 }
 
