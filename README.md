@@ -12,7 +12,7 @@ Our hangman comes preloaded with thousands of words to practice, however we also
 
 ### Game Two: Fill in the Blank
 
-This game offers students with four seperate categories to play. Each category has 10 questions stored, but randomly selects six of them for the student to answer. Because of how specific the game is, it currently does not support the teacher import function.
+This game offers students with four separate categories to play. Each category has 10 questions stored, but randomly selects six of them for the student to answer. Because of how specific the game is, it currently does not support the teacher import function.
 
 ### Game Three: Unscramble
 
