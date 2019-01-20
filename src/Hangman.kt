@@ -5,13 +5,6 @@ import kotlin.browser.window
 
 class Hangman() {
 
-    enum class Status {
-        IN_PROGRESS,
-        WIN,
-        LOSE,
-        DESTROYED //this hangman instance should not do anything at all
-    }
-
     private var status: Status = Status.IN_PROGRESS
     private val word = spellmate.wordList.getRandomWord();
     private val guesses = mutableListOf<Char>()
@@ -30,7 +23,7 @@ class Hangman() {
             val letter = event.key.toLowerCase()
             val modifiers = event.altKey || event.ctrlKey || event.shiftKey
             val char = letter.single()
-            val invisible = !js("\$('#pageGame1').is('.collapse.show')")
+            val invisible = !js("\$('#hangmanPage').is('.collapse.show')")
 
             if(modifiers || invisible || guesses.contains(char) || status != Status.IN_PROGRESS || status == Status.DESTROYED)
                 return@addEventListener

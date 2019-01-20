@@ -29,9 +29,9 @@
                                 Games
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#pageGame1" data-toggle="collapse">Hangman</a>
-                                <a class="dropdown-item" href="#">Game 2</a>
-                                <a class="dropdown-item" href="#">Game 3</a>
+                                <a class="dropdown-item" href="#hangmanPage" data-toggle="collapse">Hangman</a>
+                                <a class="dropdown-item" href="#fillInTheBlankPage">Fill In ___ Blank</a>
+                                <a class="dropdown-item" href="#unscramblePage">Ultimate Unscramble</a>
                             </div>
                         </li>
                         <li class="nav-item">
@@ -49,23 +49,29 @@
         <div id="pageHome" data-parent="#accordion" class="collapse show">
             <div class="row justify-content-md-center">
                 <div class="col-md-7 col-sm-12">
-                    <h3>Spelling Games</h3>
+                    <h3>Grammar Games</h3>
                     <hr>
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">Hangman</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                            <p class="card-text">Test your knoledge of your spelling words with Hangman! Try to something or something. </p>
-                            <a href="#pageGame1" data-toggle="collapse" class="btn btn-secondary">Play</a>
+                            <h6 class="card-subtitle mb-2 text-muted">Test your knowledge of your spelling words with Hangman!</h6>
+                            <a href="#hangmanPage" data-toggle="collapse" class="btn btn-secondary">Play</a>
                         </div>
                     </div>
                     <br>
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Game II</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#pageGame1" data-toggle="collapse" class="btn btn-secondary">Play</a>
+                            <h5 class="card-title">Fill in ___ Blank</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Solve common to/too/two, who/whom, has/have/had, and there/their/they're fill-in-the-blank problems.</h6>
+                            <a href="#page" data-toggle="collapse" class="btn btn-secondary">Play</a>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Ultimate Unscrambler</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Unscramble words to improve your spelling skills.</h6>
+                            <a href="#unscramblePage" data-toggle="collapse" class="btn btn-secondary">Play</a>
                         </div>
                     </div>
                 </div>
@@ -93,8 +99,14 @@
                 <div class="row justify-content-center">
                     <div class="col-8">
                         <div class="teacher_input_box">
-                            Enter your spelling list with one word per line: <br>
+                            <p>
+                                Enter a spelling list with one word per line. We'll give you a link that you
+                                can share with your students. Both the <strong>Hangman</strong> and
+                                <strong>Ultimate Unscrambler</strong> games will use this spelling
+                                list once your students follow the link.
+                            </p>
                             <textarea class="form-control" id="teacherTextArea" rows="20"></textarea>
+                            <br/>
                             <button id="teacherButton" type="button" class="btn btn-secondary" data-toggle="modal" data-target="#teacherModal">Submit</button>
                         </div>
                     </div>
@@ -125,7 +137,7 @@
             </div>
         </div>
 
-        <div id="pageGame1" data-parent="#accordion" class="collapse">
+        <div id="hangmanPage" data-parent="#accordion" class="collapse">
             <div class="row justify-content-md-center">
                 <div class="col-md-12">
                     <div class="container-fluid">
@@ -228,6 +240,14 @@
                         </div>
                     </div>
 
+                </div>
+            </div>
+        </div>
+
+        <div id="unscramblePage" data-parent="#accordion" class="collapse">
+            <div class="row">
+                <div class="col-12">
+                    <input type="text" name="FirstName" value="Mickey">
                 </div>
             </div>
         </div>

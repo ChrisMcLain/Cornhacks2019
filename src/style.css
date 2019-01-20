@@ -90,3 +90,9 @@ footer {
     padding: 10px;
     font-size: 18pt;
 }
+
+.modal.show .modal-dialog {
+    transform: translate(0,-50%);
+    top: 50%;
+    margin: 0 auto;
+}
