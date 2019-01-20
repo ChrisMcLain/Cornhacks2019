@@ -51,9 +51,7 @@ class Blanks() {
 
             clickOption(2)
         });
-
-        // I'm know there's a better way to condense these three in Java,
-        // but it's 1 a.m. and I can't figure out how to do it in Kotlin
+        
 
         tryAgainButton.forEach { n -> n.addEventListener("click", {
             if(status != Status.DESTROYED) {
