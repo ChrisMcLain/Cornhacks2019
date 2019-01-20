@@ -2,6 +2,25 @@ body {
     background-color: #fbd3a5;
 }
 
+.container-fluid {
+    padding-bottom: 5em;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: .5em;
+    background-color: #343A40;
+    color: white;
+}
+
+/*.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}*/
+
 .game_title {
     font-size: 24pt;
     text-align: center;
@@ -55,8 +74,3 @@ body {
    text-align: center;
 }
 
-footer {
-    position: absolute;
-    bottom: 0;
-    padding-bottom: 1em;
-}
