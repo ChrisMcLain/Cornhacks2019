@@ -77,7 +77,7 @@ class Hangman() {
     }
 
     private fun updateVisuals() {
-        hangman.src = "Images/Hangman%2000" + incorrectGuesses.size + ".png"
+        hangman.src = "Images/Hangman%200" + incorrectGuesses.size + ".jpg"
         guessBox.innerHTML = incorrectGuesses.joinToString("", "<h1 class=\"hangman_letter\">", "</h1>")
         hangman.src = "Images/Hangman%20" + incorrectGuesses.size + ".jpg"
 
