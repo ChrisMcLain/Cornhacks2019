@@ -33,9 +33,11 @@ fun main(args: Array<String>) {
 }
 
 fun resetHangman() {
+    println("Reset Hangman Game")
     hangman = Hangman()
 }
 
 fun resetBlanks() {
+    println("Reset Blanks Game")
     blanks = Blanks()
 }

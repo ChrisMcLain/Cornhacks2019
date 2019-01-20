@@ -22,7 +22,6 @@ class Blanks() {
     private val tryAgainButton = document.getElementsByName("blanksTryAgainButton").asList()
 
     init {
-
         button1.addEventListener("click", {
             val invisible = !js("\$('#blanksPage').is('.collapse.show')")
             val ended = status != Status.IN_PROGRESS || status == Status.DESTROYED
@@ -62,6 +61,8 @@ class Blanks() {
                 resetBlanks()
             }
         })}
+
+        updateVisuals()
     }
 
     private fun clickOption(i: Int) {
@@ -70,6 +71,7 @@ class Blanks() {
 
             if(hasWon()) {
                 status = Status.WIN
+                question = 0;
             }
         } else {
             status = Status.LOSE
@@ -83,17 +85,30 @@ class Blanks() {
     }
 
     private fun hasWon(): Boolean {
-        return question > GAME_LENGTH;
+        return question >= GAME_LENGTH;
     }
 
     private fun updateVisuals() {
-        sentenceBox.innerText = getQuestion().getBlankedQuestion()
+        sentenceBox.innerHTML = "<small>Question ${question + 1} of $GAME_LENGTH</small><br/>${getQuestion().getBlankedQuestion()}"
+
+        val answers = getQuestion().getChoices()
+
+        button1.innerText = answers[0]
+        button2.innerText = answers[1]
+
+        if(answers.size > 2) {
+            button3.innerText = answers[2]
+            button3.disabled = false
+        } else {
+            button3.innerText = "N/A"
+            button3.disabled = true
+        }
 
         if(status == Status.WIN) {
-            winBoxText.innerText = "You answered all $question questions correctly."
+            winBoxText.innerText = "You answered all $GAME_LENGTH questions correctly."
             js("\$('#blanksWinBox').modal()")
         } else if(status == Status.LOSE) {
-            loseBoxText.innerText = "You answered only $question questions correctly."
+            loseBoxText.innerText = "You answered $question question(s) correctly."
             js("\$('#blanksLoseBox').modal()")
         }
     }

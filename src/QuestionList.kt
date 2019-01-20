@@ -1,25 +1,20 @@
-class QuestionList {
+import QuestionType.Companion.HAS_HAVE_HAD
+import QuestionType.Companion.THERE_THEIR_THEYRE
+import QuestionType.Companion.TO_TOO_TWO
+import QuestionType.Companion.WHO_WHOM
+import QuestionType.Companion.YOUR_YOURE
 
-    fun take(choices: List<String> = getRandomMode()): List<Question> {
-        return Question.values()
-                .filter { n -> n.choices == choices }
-                .shuffled()
-                .take(6);
-    }
-
-    fun getRandomMode(): List<String> {
-        return QUESTION_MODES.random()
+class QuestionType {
+    companion object {
+        val HAS_HAVE_HAD = listOf("has", "have", "had")
+        val TO_TOO_TWO = listOf("to", "too", "two")
+        val WHO_WHOM = listOf("who", "whom")
+        val THERE_THEIR_THEYRE = listOf("there", "their", "they're")
+        val YOUR_YOURE = listOf("your", "you're")
     }
 }
 
-val HAS_HAVE_HAD = listOf("has", "have", "had")
-val TO_TOO_TWO = listOf("to", "too", "two")
-val WHO_WHOM = listOf("who", "whom")
-val THERE_THEIR_THEYRE = listOf("there", "their", "they're")
-val YOUR_YOURE = listOf("your", "you're")
-val QUESTION_MODES = listOf(HAS_HAVE_HAD, TO_TOO_TWO, WHO_WHOM, THERE_THEIR_THEYRE, YOUR_YOURE)
-
-enum class Question(val question: String, val choices: List<String>) {
+enum class Question(private val question: String, private val choices: List<String>) {
 
     Q1("Mary (has) a book.", HAS_HAVE_HAD),
     Q2("A rabbit (has) long ears.", HAS_HAVE_HAD),
@@ -29,8 +24,8 @@ enum class Question(val question: String, val choices: List<String>) {
     Q6("I (have) many friends.", HAS_HAVE_HAD),
     Q7("We (had) a big house when I was a kid.", HAS_HAVE_HAD),
     Q8("Bonny (has) finished her project work.", HAS_HAVE_HAD),
-    Q9("Do you (have) a balloon.", HAS_HAVE_HAD),
-    Q10("This Hen (has) red wings.", HAS_HAVE_HAD),
+    Q9("Do you (have) a balloon?", HAS_HAVE_HAD),
+    Q10("This hen (has) red wings.", HAS_HAVE_HAD),
     Q11("Sam (had) fun at the party last Sunday.", HAS_HAVE_HAD),
 
     Q12("I am going (to) read a book.", TO_TOO_TWO),
@@ -42,7 +37,7 @@ enum class Question(val question: String, val choices: List<String>) {
     Q18("Those clothes are (too) expensive.", TO_TOO_TWO),
     Q19("Cindy got (two) strikes in bowling.", TO_TOO_TWO),
     Q20("I need (to) write some pages for school.", TO_TOO_TWO),
-    Q21("I needy you (to) help me, it's heavy!", TO_TOO_TWO),
+    Q21("I need you (to) help me, it's heavy!", TO_TOO_TWO),
 
     Q22("(Who) stole my ice cream?", WHO_WHOM),
     Q23("To (whom) do I owe my congratulations?", WHO_WHOM),
@@ -50,7 +45,7 @@ enum class Question(val question: String, val choices: List<String>) {
     Q25("(Who) is your closest friend?", WHO_WHOM),
     Q26("(Who) should I ask to the dance?", WHO_WHOM),
     Q27("With (whom) did you go to the concert?", WHO_WHOM),
-    Q28("You will be shocked when I tell you (who) called me!", WHO_WHOM),
+    Q28("You'll be shocked when I tell you (who) called me!", WHO_WHOM),
     Q29("Do you know (who) delivered the package today?", WHO_WHOM),
     Q30("For (whom) should I vote?", WHO_WHOM),
     Q31("(Who) is helping dad tonight?", WHO_WHOM),
@@ -67,20 +62,23 @@ enum class Question(val question: String, val choices: List<String>) {
     Q41("Look out, over (there)!", THERE_THEIR_THEYRE),
 
     Q42("(You're) getting very sleepy.", YOUR_YOURE),
-    Q43("(Your) laptop needs charged.", YOUR_YOURE),
+    Q43("(Your) laptop needs to be charged.", YOUR_YOURE),
     Q44("I'm so happy (you're) here.", YOUR_YOURE),
-    Q45("Are your sure (you're) alright", YOUR_YOURE),
+    Q45("Are you sure (you're) alright?", YOUR_YOURE),
     Q46("Is that what (you're) here for?", YOUR_YOURE),
-    Q47("(Your) dog needs fed.", YOUR_YOURE),
+    Q47("(Your) dog needs to be fed.", YOUR_YOURE),
     Q48("Take off (your) hat.", YOUR_YOURE),
     Q49("It's (your) decision.", YOUR_YOURE),
-    Q50("Open(your) eyes.", YOUR_YOURE),
+    Q50("Open (your) eyes.", YOUR_YOURE),
     Q51("(You're) my best friend.", YOUR_YOURE),
-
     ;
 
+    fun getChoices(): List<String> {
+        return choices.toList()
+    }
+
     fun getCorrectAnswer(): String {
-        return question.toLowerCase().match("(?<=\\()[A-Za-z]+(?=\\))")!![0]
+        return question.toLowerCase().match("(?<=\\()[A-Za-z\']+(?=\\))")!![0]
     }
 
     fun getCorrectAnswerIndex(): Int {
@@ -88,6 +86,21 @@ enum class Question(val question: String, val choices: List<String>) {
     }
 
     fun getBlankedQuestion(): String {
-        return question.replace(Regex("\\([A-Za-z]+\\)"), "___")
+        return question.replace(Regex("\\([A-Za-z\']+\\)"), "___")
+    }
+}
+
+class QuestionList {
+
+    fun take(choices: List<String> = getRandomMode()): List<Question> {
+        return Question.values()
+                .filter { n -> n.getChoices().equals(choices) }
+                .shuffled()
+                .take(6);
+    }
+
+    private fun getRandomMode(): List<String> {
+        return listOf(HAS_HAVE_HAD, TO_TOO_TWO, WHO_WHOM, THERE_THEIR_THEYRE, YOUR_YOURE)
+                .random()
     }
 }
