@@ -1,3 +1,4 @@
+import org.w3c.dom.HTMLDivElement
 import org.w3c.dom.HTMLImageElement
 import org.w3c.dom.events.KeyboardEvent
 import kotlin.browser.document
@@ -11,11 +12,14 @@ class Hangman() {
         LOSE
     }
 
-    private var gameOver: Status = Status.IN_PROGRESS
+    private var status: Status = Status.IN_PROGRESS
     private val word = spellmate.wordList.getRandomWord();
     private val guesses = mutableListOf<Char>()
     private val incorrectGuesses = mutableListOf<Char>()
+
     private val hangman = document.getElementById("theHangman") as HTMLImageElement
+    private val guessBox = document.getElementById("hangmanGuessBox") as HTMLDivElement
+    private val wordBox = document.getElementById("hangmanWordBox") as HTMLDivElement
 
     init {
         window.addEventListener("keydown", { n ->
@@ -24,7 +28,7 @@ class Hangman() {
             val modifiers = event.altKey || event.ctrlKey || event.shiftKey
             val char = letter.single()
 
-            if(modifiers || guesses.contains(char) || gameOver != Status.IN_PROGRESS)
+            if(modifiers || guesses.contains(char) || status != Status.IN_PROGRESS)
                 return@addEventListener
 
             if(letter.matches("[A-Za-z]"))
@@ -40,9 +44,9 @@ class Hangman() {
         }
 
         if(incorrectGuesses.size >= 9) {
-            gameOver = Status.LOSE;
+            status = Status.LOSE;
         } else if(hasWon()) {
-            gameOver = Status.WIN;
+            status = Status.WIN;
         }
 
         updateVisuals()
@@ -63,5 +67,6 @@ class Hangman() {
 
     private fun updateVisuals() {
         hangman.src = "Images/Hangman%200" + incorrectGuesses.size + ".png"
+        guessBox.innerHTML = incorrectGuesses.joinToString("", "<h1 class=\"hangman_letter\">", "</h1>")
     }
 }
