@@ -1,5 +1,6 @@
 class Spellmate {
     var wordList: WordList = getStoredList()
+    var questionList: QuestionList = QuestionList()
 
     init {
         saveStoredList()

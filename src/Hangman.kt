@@ -25,7 +25,7 @@ class Hangman() {
             val char = letter.single()
             val invisible = !js("\$('#hangmanPage').is('.collapse.show')")
 
-            if(modifiers || invisible || guesses.contains(char) || status != Status.IN_PROGRESS || status == Status.DESTROYED)
+            if(modifiers || invisible as Boolean || guesses.contains(char) || status != Status.IN_PROGRESS || status == Status.DESTROYED)
                 return@addEventListener
 
             if(letter.matches("[A-Za-z]"))
