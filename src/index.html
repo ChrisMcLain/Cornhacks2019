@@ -146,15 +146,35 @@
                         <div class="row">
                             <div class="col-6">
                                 <div class="padding">
-                                    <div class="hangman_box">
-                                        <img src="Images/Hangman%2000.png" style="width: 40%;" alt="Hangman" id="theHangman">
+                                    <div class="hangman_box row justify-content-md-center">
+                                        <div align="center" class="col-md-6">
+                                            <img src="Images/Hangman%2000.png" style="width: 100%;" alt="Hangman" id="theHangman">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="padding">
                                     <div id="hangmanGuessBox" class="guessed_letter_box">
-                                        word guesses stuff will go here
+                                        Incorrect guesses will appear here.
+                                    </div>
+                                </div>
+
+                                <div class="padding">
+                                    <div id="hangmanWinBox" class="card text-white bg-success mb-3">
+                                        <div class="card-body">
+                                            <h5 class="card-title">You win!</h5>
+                                            <p class="card-text" id="hangmanWinBoxText"></p>
+                                            <a href="#" class="btn btn-light">Play Again</a>
+                                        </div>
+                                    </div>
+
+                                    <div id="hangmanLossBox" class="card text-white bg-danger mb-3">
+                                        <div class="card-body">
+                                            <h5 class="card-title">You lose.</h5>
+                                            <p class="card-text" id="hangmanLossBoxText"></p>
+                                            <a href="#" class="btn btn-light">Try Again</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
