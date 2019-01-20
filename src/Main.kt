@@ -6,6 +6,7 @@ import kotlin.browser.window
 val spellmate: Spellmate = Spellmate()
 var hangman: Hangman = Hangman()
 var blanks: Blanks = Blanks()
+var unscramble: Unscramble = Unscramble()
 
 fun main(args: Array<String>) {
     println("Loaded wordlist of size ${spellmate.wordList.size}\n" + spellmate.wordList.toString())
@@ -38,4 +39,8 @@ fun resetHangman() {
 
 fun resetBlanks() {
     blanks = Blanks()
+}
+
+fun resetUnscramble() {
+    unscramble = Unscramble()
 }
