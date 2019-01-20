@@ -2,6 +2,10 @@ body {
     background-color: #fbd3a5;
 }
 
+.container-fluid {
+    padding-bottom: 5em;
+}
+
 footer {
     position: fixed;
     bottom: 0;
@@ -10,6 +14,12 @@ footer {
     background-color: #343A40;
     color: white;
 }
+
+/*.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}*/
 
 .game_title {
     font-size: 24pt;
