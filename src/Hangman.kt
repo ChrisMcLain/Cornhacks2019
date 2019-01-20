@@ -50,9 +50,9 @@ class Hangman() {
         }
 
         if(incorrectGuesses.size >= 9) {
-            status = Status.LOSE;
+            status = Status.LOSE
         } else if(hasWon()) {
-            status = Status.WIN;
+            status = Status.WIN
         }
 
         updateVisuals()
@@ -61,10 +61,10 @@ class Hangman() {
     private fun hasWon(): Boolean {
         word.forEach { n ->
             if(!guesses.contains(n)) {
-                return false;
+                return false
             }
         }
-        return true;
+        return true
     }
 
     private fun isCorrectGuess(letter: Char): Boolean {
