@@ -1,5 +1,6 @@
 import org.w3c.dom.HTMLDivElement
 import org.w3c.dom.HTMLImageElement
+import org.w3c.dom.HTMLParagraphElement
 import org.w3c.dom.events.KeyboardEvent
 import kotlin.browser.document
 import kotlin.browser.window
@@ -20,6 +21,8 @@ class Hangman() {
     private val hangman = document.getElementById("theHangman") as HTMLImageElement
     private val guessBox = document.getElementById("hangmanGuessBox") as HTMLDivElement
     private val wordBox = document.getElementById("hangmanWordBox") as HTMLDivElement
+    private val winBoxText = document.getElementById("hangmanWinBoxText") as HTMLParagraphElement
+    private val loseBoxText = document.getElementById("hangmanLoseBoxText") as HTMLParagraphElement
 
     init {
         window.addEventListener("keydown", { n ->
@@ -88,9 +91,16 @@ class Hangman() {
         wordBox.innerHTML = displayWord
 
         if(status == Status.WIN) {
-
+            winBoxText.innerText = "The word was ${this.word.toUpperCase()}!"
+            js("\$('#hangmanWinBox').collapse('show')")
+            js("\$('#hangmanLoseBox').collapse('hide')")
         } else if(status == Status.LOSE) {
-
+            loseBoxText.innerText = "The word was ${this.word.toUpperCase()}."
+            js("\$('#hangmanLoseBox').collapse('show')")
+            js("\$('#hangmanWinBox').collapse('hide')")
+        } else {
+            js("\$('#hangmanWinBox').collapse('hide')")
+            js("\$('#hangmanLoseBox').collapse('hide')")
         }
     }
 }
