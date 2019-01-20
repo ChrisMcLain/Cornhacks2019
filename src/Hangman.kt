@@ -30,7 +30,7 @@ class Hangman() {
             val letter = event.key.toLowerCase()
             val modifiers = event.altKey || event.ctrlKey || event.shiftKey
             val char = letter.single()
-            val invisible = !js("\$('#pageGame1').is('.collapse.show')")
+            val invisible = !js("\$('#hangmanPage').is('.collapse.show')")
 
             if(modifiers || invisible || guesses.contains(char) || status != Status.IN_PROGRESS || status == Status.DESTROYED)
                 return@addEventListener
