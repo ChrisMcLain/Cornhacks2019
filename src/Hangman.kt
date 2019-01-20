@@ -22,8 +22,8 @@ class Hangman() {
     private val hangman = document.getElementById("theHangman") as HTMLImageElement
     private val guessBox = document.getElementById("hangmanGuessBox") as HTMLDivElement
     private val wordBox = document.getElementById("hangmanWordBox") as HTMLDivElement
-    private val winBoxText = document.getElementById("hangmanWinBoxText") as HTMLParagraphElement
-    private val loseBoxText = document.getElementById("hangmanLoseBoxText") as HTMLParagraphElement
+    private val winBoxText = document.getElementById("hangmanWinBoxText") as HTMLDivElement
+    private val loseBoxText = document.getElementById("hangmanLoseBoxText") as HTMLDivElement
     private val tryAgainButton = document.getElementById("hangmanTryAgainButton") as HTMLButtonElement
 
     init {
