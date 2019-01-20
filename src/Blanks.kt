@@ -51,7 +51,7 @@ class Blanks() {
 
             clickOption(2)
         });
-        
+
 
         tryAgainButton.forEach { n -> n.addEventListener("click", {
             if(status != Status.DESTROYED) {
