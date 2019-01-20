@@ -16,7 +16,8 @@ val HAS_HAVE_HAD = listOf("has", "have", "had")
 val TO_TOO_TWO = listOf("to", "too", "two")
 val WHO_WHOM = listOf("who", "whom")
 val THERE_THEIR_THEYRE = listOf("there", "their", "they're")
-val QUESTION_MODES = listOf(HAS_HAVE_HAD, TO_TOO_TWO, WHO_WHOM, THERE_THEIR_THEYRE)
+val YOUR_YOURE = listOf("your", "you're")
+val QUESTION_MODES = listOf(HAS_HAVE_HAD, TO_TOO_TWO, WHO_WHOM, THERE_THEIR_THEYRE, YOUR_YOURE)
 
 enum class Question(val question: String, val choices: List<String>) {
 
@@ -64,6 +65,18 @@ enum class Question(val question: String, val choices: List<String>) {
     Q39("(They're) going to be here until tomorrow.", THERE_THEIR_THEYRE),
     Q40("(Their) conversation turned to politics.", THERE_THEIR_THEYRE),
     Q41("Look out, over (there)!", THERE_THEIR_THEYRE),
+
+    Q42("(You're) getting very sleepy.", YOUR_YOURE),
+    Q43("(Your) laptop needs charged.", YOUR_YOURE),
+    Q44("I'm so happy (you're) here.", YOUR_YOURE),
+    Q45("Are your sure (you're) alright", YOUR_YOURE),
+    Q46("Is that what (you're) here for?", YOUR_YOURE),
+    Q47("(Your) dog needs fed.", YOUR_YOURE),
+    Q48("Take off (your) hat.", YOUR_YOURE),
+    Q49("It's (your) decision.", YOUR_YOURE),
+    Q50("Open(your) eyes.", YOUR_YOURE),
+    Q51("(You're) my best friend.", YOUR_YOURE),
+
     ;
 
     fun getCorrectAnswer(): String {
