@@ -34,6 +34,8 @@ class Hangman() {
             if(letter.matches("[A-Za-z]"))
                 tryPlayLetter(char)
         })
+
+        updateVisuals()
     }
 
     private fun tryPlayLetter(letter: Char) {
@@ -61,12 +63,34 @@ class Hangman() {
         return true;
     }
 
-    fun isCorrectGuess(letter: Char): Boolean {
+    private fun isCorrectGuess(letter: Char): Boolean {
         return word.contains(letter)
     }
 
     private fun updateVisuals() {
         hangman.src = "Images/Hangman%200" + incorrectGuesses.size + ".png"
-        guessBox.innerHTML = incorrectGuesses.joinToString("", "<h1 class=\"hangman_letter\">", "</h1>")
+
+        var guesses = ""
+        incorrectGuesses.forEach { n -> guesses += "<div class=\"hangman_letter\"><h3>${n.toUpperCase()}</h3></div>" }
+        guessBox.innerHTML = guesses
+
+        var displayWord = ""
+        var realWord = ""
+        word.forEach { n ->
+            if(this.guesses.contains(n))
+                realWord += n.toUpperCase()
+            else
+                realWord += "_"
+        }
+        realWord.forEach { n ->
+            displayWord += "<div class=\"hangman_letter\"><h2>$n</h2></div>"
+        }
+        wordBox.innerHTML = displayWord
+
+        if(status == Status.WIN) {
+
+        } else if(status == Status.LOSE) {
+
+        }
     }
 }

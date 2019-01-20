@@ -36,8 +36,9 @@ footer {
     border-color: #343A40;
     border-radius: 3px;
     background-color: #fdeddb;
-    padding: 5px;
     min-height: 400px;
+
+    padding: 2em 2em;
 }
 
 .guessed_letter_box {
@@ -75,7 +76,8 @@ footer {
 }
 
 .hangman_letter {
-
+    padding: 1em 1em 1em 1em;
+    display: inline-block;
 }
 
 .fill_in_blank_sentence {
