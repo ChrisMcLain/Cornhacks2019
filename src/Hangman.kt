@@ -5,13 +5,6 @@ import kotlin.browser.window
 
 class Hangman() {
 
-    enum class Status {
-        IN_PROGRESS,
-        WIN,
-        LOSE,
-        DESTROYED //this hangman instance should not do anything at all
-    }
-
     private var status: Status = Status.IN_PROGRESS
     private val word = spellmate.wordList.getRandomWord();
     private val guesses = mutableListOf<Char>()
