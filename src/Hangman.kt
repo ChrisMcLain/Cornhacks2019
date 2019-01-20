@@ -79,7 +79,7 @@ class Hangman() {
     private fun updateVisuals() {
         hangman.src = "Images/Hangman%200" + incorrectGuesses.size + ".jpg"
         guessBox.innerHTML = incorrectGuesses.joinToString("", "<h1 class=\"hangman_letter\">", "</h1>")
-        hangman.src = "Images/Hangman%20" + incorrectGuesses.size + ".jpg"
+        hangman.src = "Images/Hangman%200" + incorrectGuesses.size + ".jpg"
 
         var guesses = ""
         incorrectGuesses.forEach { n -> guesses += "<div class=\"hangman_letter\"><h3>${n.toUpperCase()}</h3></div>" }
