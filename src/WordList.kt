@@ -8,7 +8,8 @@ class WordList(val wordList: Collection<String>) {
             .lines()
             .filter { n -> n.length > 3 }
             .shuffled()
-            .take(64))
+            .take(64)
+            .sortedWith(compareBy {it}))
 
     companion object {
         val DEFAULT_EASY = WordList("""

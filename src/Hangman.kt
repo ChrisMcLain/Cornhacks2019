@@ -1,7 +1,4 @@
-import org.w3c.dom.HTMLButtonElement
-import org.w3c.dom.HTMLDivElement
-import org.w3c.dom.HTMLImageElement
-import org.w3c.dom.HTMLParagraphElement
+import org.w3c.dom.*
 import org.w3c.dom.events.KeyboardEvent
 import kotlin.browser.document
 import kotlin.browser.window
@@ -11,7 +8,8 @@ class Hangman() {
     enum class Status {
         IN_PROGRESS,
         WIN,
-        LOSE
+        LOSE,
+        DESTROYED //this hangman instance should not do anything at all
     }
 
     private var status: Status = Status.IN_PROGRESS
@@ -24,7 +22,7 @@ class Hangman() {
     private val wordBox = document.getElementById("hangmanWordBox") as HTMLDivElement
     private val winBoxText = document.getElementById("hangmanWinBoxText") as HTMLDivElement
     private val loseBoxText = document.getElementById("hangmanLoseBoxText") as HTMLDivElement
-    private val tryAgainButton = document.getElementById("hangmanTryAgainButton") as HTMLButtonElement
+    private val tryAgainButton = document.getElementsByName("hangmanTryAgainButton").asList()
 
     init {
         window.addEventListener("keydown", { n ->
@@ -32,19 +30,21 @@ class Hangman() {
             val letter = event.key.toLowerCase()
             val modifiers = event.altKey || event.ctrlKey || event.shiftKey
             val char = letter.single()
+            val invisible = !js("\$('#pageGame1').is('.collapse.show')")
 
-            if(modifiers || guesses.contains(char) || status != Status.IN_PROGRESS)
+            if(modifiers || invisible || guesses.contains(char) || status != Status.IN_PROGRESS || status == Status.DESTROYED)
                 return@addEventListener
 
             if(letter.matches("[A-Za-z]"))
                 tryPlayLetter(char)
         })
 
-        tryAgainButton.addEventListener("click", {
-            if(status == Status.IN_PROGRESS)
-                status = Status.LOSE
-            resetHangman();
-        })
+        tryAgainButton.forEach { n -> n.addEventListener("click", {
+            if(status != Status.DESTROYED) {
+                status = Status.DESTROYED
+                resetHangman();
+            }
+        })}
 
         updateVisuals()
     }
