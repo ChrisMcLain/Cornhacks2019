@@ -41,6 +41,8 @@ class Hangman() {
         })
 
         tryAgainButton.addEventListener("click", {
+            if(status == Status.IN_PROGRESS)
+                status = Status.LOSE
             resetHangman();
         })
 
