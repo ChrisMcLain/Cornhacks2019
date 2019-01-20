@@ -92,7 +92,7 @@
                         <div class="teacher_input_box">
                             Enter your spelling list with one word per line: <br>
                             <textarea class="form-control" id="teacherTextArea" rows="20"></textarea>
-                            <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#teacherModal">Submit</button>
+                            <button id="teacherButton" type="button" class="btn btn-secondary" data-toggle="modal" data-target="#teacherModal">Submit</button>
                         </div>
                     </div>
                 </div>
@@ -103,7 +103,7 @@
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title">Link Generated</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <button name="teacherButtonDone" type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
@@ -112,10 +112,10 @@
                                 Click and drag to select the link below, and then right click and click copy.
                                 Then you can right click and paste it anywhere else to share it with your students!
                             </p>
-                            <input value="url" disabled="true" style="width: 100%;">
+                            <input id="teacherUrl" value="url" disabled="true" style="width: 100%;">
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary">Done</button>
+                            <button name="teacherButtonDone" type="button" class="btn btn-secondary">Save & Close</button>
                         </div>
                     </div>
                 </div>

@@ -1,6 +1,14 @@
+import kotlin.browser.window
+
 class WordList(val wordList: Collection<String>) {
 
-    constructor(newlineDelimitedList: String): this(newlineDelimitedList.trimIndent().trim().replace(",", "\n").lines().filter { n -> n.length > 3 })
+    constructor(delimitedList: String): this(delimitedList
+            .trimIndent().trim()
+            .replace(",", "\n")
+            .lines()
+            .filter { n -> n.length > 3 }
+            .shuffled()
+            .take(64))
 
     companion object {
         val DEFAULT_EASY = WordList("""
@@ -9901,6 +9909,10 @@ configurations""")
 
     override fun toString(): String {
         return wordList.joinToString(",")
+    }
+
+    fun getLink(): String {
+        return window.location.href.split("?")[0] + "?${PARAM_WORD_LIST}=" + spellmate.wordList.toString();
     }
 
     val size: Int
