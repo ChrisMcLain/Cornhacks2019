@@ -30,8 +30,8 @@
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="#hangmanPage" data-toggle="collapse">Hangman</a>
-                                <a class="dropdown-item" href="#fillInTheBlankPage">Fill In ___ Blank</a>
-                                <a class="dropdown-item" href="#unscramblePage">Ultimate Unscramble</a>
+                                <a class="dropdown-item" href="#fillInTheBlankPage" data-toggle="collapse">Fill In ___ Blank</a>
+                                <a class="dropdown-item" href="#unscramblePage" data-toggle="collapse">Ultimate Unscramble</a>
                             </div>
                         </li>
                         <li class="nav-item">
@@ -169,6 +169,15 @@
                                 <div class="padding">
                                     <div id="hangmanGuessBox" class="guessed_letter_box">
                                     </div>
+                                    <br>
+                                    <div class="row justify-content-center">
+                                        <div class="col-5" align="center">
+                                            <button type="button" class="btn btn-secondary btn-lg" data-toggle="modal" data-target="#hangmanRules">Rules</button>
+                                        </div>
+                                        <div class="col-5" align="center">
+                                            <button type="button" name="hangmanTryAgainButton" class="btn btn-secondary btn-lg" data-dismiss="modal">Restart</button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -182,23 +191,26 @@
                         </div>
                     </div>
 
-                    <div class="modal" tabindex="-1" role="dialog">
+                    <div class="modal fade" id="hangmanRules" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title">Rules</h5>
+                                    <h5 class="modal-title" id="exampleModalLabel2">Rules</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <p>Rules go here</p>
+                                    <ol>
+                                        <li>Hit a key to guess a letter</li>
+                                        <li>You must guess the word before the 'hangman' is completed</li>
+                                        <li>Each wrong guess add a body part to the 'hangman'</li>
+                                        <li>Incorrect guesses will be displayed beside the 'hangman'</li>
+                                        <li>You may not guess the word</li>
+                                    </ol>
                                 </div>
                                 <div class="modal-footer">
-                                    <p>Select a Difficulty:</p>
-                                    <button type="button" class="btn btn-success">Easy</button>
-                                    <button type="button" class="btn btn-warning" data-dismiss="modal">Medium</button>
-                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Hard</button>
+                                    <button type="button" class="btn btn-success" data-dismiss="modal">Go!</button>
                                 </div>
                             </div>
                         </div>
@@ -247,7 +259,15 @@
         <div id="unscramblePage" data-parent="#accordion" class="collapse">
             <div class="row">
                 <div class="col-12">
-                    <input type="text" name="FirstName" value="Mickey">
+                    <p class="game_title">Ultimate Unscrambler</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6" align="right">
+                    unscrable word goes here
+                </div>
+                <div class="col-6" align="left">
+                    <input type="text" name="FirstName" value="">
                 </div>
             </div>
         </div>
